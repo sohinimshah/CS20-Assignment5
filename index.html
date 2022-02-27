@@ -21,103 +21,103 @@
     </head>
     <body>
         <h1>Lottery Stimulator</h1>
-            <script language="javascript">
-                var pick = [];
-                for (let i = 0; i < 5; i++) {
-                    var randNum = Math.floor(Math.random() * 48) + 1;
-                    pick[i] = randNum;
-                }
-                var luckyBall = Math.floor(Math.random() * 18) + 1;
+        <script language="javascript">
+            var pick = [];
+            for (let i = 0; i < 5; i++) {
+                var randNum = Math.floor(Math.random() * 48) + 1;
+                pick[i] = randNum;
+            }
+            var luckyBall = Math.floor(Math.random() * 18) + 1;
 
-                document.write("My pick: ");
-                for (let i = 0; i < pick.length; i++) {
-                    document.write(pick[i] + " ");
-                }
-                document.write(" lucky " + luckyBall + "</br>");
+            document.write("My pick: ");
+            for (let i = 0; i < pick.length; i++) {
+                document.write(pick[i] + " ");
+            }
+            document.write(" lucky " + luckyBall + "</br>");
 
-                pick.sort(
-                    function(a, b) {
-                        return a-b
+            pick.sort(
+                function(a, b) {
+                    return a-b;
+                }
+            );
+
+            document.write("My pick sorted: ");
+            for (let i = 0; i < pick.length; i++) {
+                document.write(pick[i] + " ");
+            }
+            document.write(" lucky " + luckyBall + "</br>");
+
+            var winningCombo = [12, 15, 24, 35, 48];
+            var winningLuckyBall = 3;
+
+            document.write("Winning numbers: ");
+            for (let i = 0; i < winningCombo.length; i++) {
+                document.write(winningCombo[i] + " ");
+            }
+            document.write(" lucky " + winningLuckyBall + "</br>");
+
+            var numMatching = 0;
+            for (let i = 0; i < pick.length; i++) {
+                if (pick[i] == winningCombo[i]) {
+                    numMatching++;
+                }
+            }
+
+            document.write("Numbers matching: " + numMatching + "</br>");
+
+            var matchingLuckyBalls;
+            if (luckyBall == winningLuckyBall) {
+                matchingLuckyBalls = true;
+                document.write("Lucky ball matches </br>");
+            } else {
+                matchingLuckyBalls = false;
+                document.write("Lucky ball does not match </br>");
+            }
+
+            switch (numMatching) {
+                case 5:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $7,000 a WEEK for LIFE");
+                    } else {
+                        document.write("Your winnings: $25,000 a YEAR for LIFE");
                     }
-                );
-
-                document.write("My pick sorted: ");
-                for (let i = 0; i < pick.length; i++) {
-                    document.write(pick[i] + " ");
-                }
-                document.write(" lucky " + luckyBall + "</br>");
-
-                var winningCombo = [12, 15, 24, 35, 48];
-                var winningLuckyBall = 3;
-
-                document.write("Winning numbers: ");
-                for (let i = 0; i < winningCombo.length; i++) {
-                    document.write(winningCombo[i] + " ");
-                }
-                document.write(" lucky " + winningLuckyBall + "</br>");
-
-                var numMatching = 0;
-                for (let i = 0; i < pick.length; i++) {
-                    if (pick[i] == winningCombo[i]) {
-                        numMatching++;
+                    break;
+                case 4:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $5,000");
+                    } else {
+                        document.write("Your winnings: $200");
                     }
-                }
-
-                document.write("Numbers matching: " + numMatching + "</br>");
-
-                var matchingLuckyBalls;
-                if (luckyBall == winningLuckyBall) {
-                    matchingLuckyBalls = true;
-                    document.write("Lucky ball matches </br>");
-                } else {
-                    matchingLuckyBalls = false;
-                    document.write("Lucky ball does not match </br>");
-                }
-
-                switch (numMatching) {
-                    case 5:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $7,000 a WEEK for LIFE");
-                        } else {
-                            document.write("Your winnings: $25,000 a YEAR for LIFE");
-                        }
-                        break;
-                    case 4:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $5,000");
-                        } else {
-                            document.write("Your winnings: $200");
-                        }
-                        break;
-                    case 3:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $150");
-                        } else {
-                            document.write("Your winnings: $20");
-                        }
-                        break;
-                    case 2:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $25");
-                        } else {
-                            document.write("Your winnings: $3");
-                        }
-                        break;
-                    case 1:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $6");
-                        } else {
-                            document.write("Your winnings: $0");
-                        }
-                        break;
-                    case 0:
-                        if (matchingLuckyBalls) {
-                            document.write("Your winnings: $4");
-                        } else {
-                            document.write("Your winnings: $0");
-                        }
-                        break;
-                }
-            </script>
+                    break;
+                case 3:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $150");
+                    } else {
+                        document.write("Your winnings: $20");
+                    }
+                    break;
+                case 2:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $25");
+                    } else {
+                        document.write("Your winnings: $3");
+                    }
+                    break;
+                case 1:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $6");
+                    } else {
+                        document.write("Your winnings: $0");
+                    }
+                    break;
+                case 0:
+                    if (matchingLuckyBalls) {
+                        document.write("Your winnings: $4");
+                    } else {
+                        document.write("Your winnings: $0");
+                    }
+                    break;
+            }
+        </script>
     </body>
 </html>
